@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.sky.constant.MessageConstant;
 import com.sky.constant.PasswordConstant;
 import com.sky.constant.StatusConstant;
+import com.sky.context.BaseContext;
 import com.sky.dto.EmployeeDTO;
 import com.sky.dto.EmployeeLoginDTO;
 import com.sky.entity.Employee;
@@ -74,9 +75,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));//将加密的密码存进数据库，且默认为123456
         employee.setUpdateTime(LocalDateTime.now());
         employee.setCreateTime(LocalDateTime.now());
-        //TODO 后期改为当前登录用户的ID
-        employee.setUpdateUser(10L);
-        employee.setCreateUser(10L);
+        //后期改为当前登录用户的ID
+        employee.setUpdateUser(BaseContext.getCurrentId());
+        employee.setCreateUser(BaseContext.getCurrentId());
 
         employeeMapper.insert(employee);
 
