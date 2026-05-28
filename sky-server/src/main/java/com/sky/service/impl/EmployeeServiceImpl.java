@@ -77,11 +77,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         //把没有的属性补全
         employee.setStatus(StatusConstant.ENABLE);//不直接写1，方便后期维护，调用定义的常量
         employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));//将加密的密码存进数据库，且默认为123456
-        employee.setUpdateTime(LocalDateTime.now());
-        employee.setCreateTime(LocalDateTime.now());
+        //employee.setUpdateTime(LocalDateTime.now());
+        //employee.setCreateTime(LocalDateTime.now());
         //后期改为当前登录用户的ID
-        employee.setUpdateUser(BaseContext.getCurrentId());
-        employee.setCreateUser(BaseContext.getCurrentId());
+        //employee.setUpdateUser(BaseContext.getCurrentId());
+       // employee.setCreateUser(BaseContext.getCurrentId());
 
         employeeMapper.insert(employee);
 
@@ -115,8 +115,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void save(EmployeeDTO employeeDTO){
         Employee employee = new Employee();
         BeanUtils.copyProperties(employeeDTO, employee);
-        employee.setUpdateTime(LocalDateTime.now());
-        employee.setUpdateUser(BaseContext.getCurrentId());
+        //employee.setUpdateTime(LocalDateTime.now());
+        //employee.setUpdateUser(BaseContext.getCurrentId());
         employeeMapper.update( employee);
     }
 
