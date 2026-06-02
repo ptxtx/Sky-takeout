@@ -29,4 +29,6 @@ public interface DishService {
     条件查询菜品口味
      */
     List<DishVO> listWithFlavor(Dish dish);
+
+    void startOrStop(Integer status, Long id);
 }
