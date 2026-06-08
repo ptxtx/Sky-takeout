@@ -21,10 +21,13 @@ public class ReportController {
     @Autowired
     private ReportService reportService;
     @GetMapping("/turnoverStatistics")
-
     public Result<TurnoverReportVO> turnOverStatistics(@DateTimeFormat(pattern ="yyyy-MM-dd" ) LocalDate begin,@DateTimeFormat(pattern ="yyyy-MM-dd" )LocalDate end){
         log.info("营业额统计");
         TurnoverReportVO turnoverStatistics = reportService.getTurnoverStatistics(begin, end);
         return Result.success(turnoverStatistics);
     }
+
+    @GetMapping("/userStatistics")
+
+
 }
