@@ -1,4 +1,10 @@
-# 项目排除路径
-/sky-common/target/
-/sky-pojo/target/
-/sky-server/target/
+# Build output
+**/target/
+
+# IDE metadata
+.idea/
+*.iml
+
+# Local configuration and credentials
+sky-server/src/main/resources/application-dev.yml
+.env

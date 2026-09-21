@@ -37,20 +37,20 @@ logging:
 sky:
   jwt:
     # 设置jwt签名加密时使用的秘钥
-    admin-secret-key: itcast
+    admin-secret-key: ${SKY_JWT_ADMIN_SECRET}
     # 设置jwt过期时间
     admin-ttl: 7200000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
 
-    user-secret-key: itheima
+    user-secret-key: ${SKY_JWT_USER_SECRET}
     user-ttl: 7200000
 #    设置前端传过来的令牌名称
     user-token-name: authentication
   alioss:
     endpoint: ${sky.alioss.endpoint}
     access-key-id: ${sky.alioss.access-key-id}
-    bucket-name: java-aiptx ${sky.alioss.bucket-name}
+    bucket-name: ${sky.alioss.bucket-name}
     access-key-secret: ${sky.alioss.access-key-secret}
   wechat:
     appid: ${sky.wechat.appid}
